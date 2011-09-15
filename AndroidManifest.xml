@@ -8,7 +8,7 @@
     				android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         <activity android:name=".HeartRateMonitor"
                   android:configChanges="keyboardHidden|orientation"
-                  android:screenOrientation="landscape">
+                  android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -19,6 +19,7 @@
     <uses-feature android:name="android.hardware.camera"/>
     <uses-feature android:name="android.hardware.camera.flash"/>
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-sdk android:minSdkVersion="7" />
 
 </manifest> 

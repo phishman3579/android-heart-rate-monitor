@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="horizontal" 
+	android:orientation="vertical" 
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent" 
 	android:id="@+id/layout">
+	<LinearLayout android:id="@+id/top"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:orientation="horizontal" 
+        android:layout_width="fill_parent"
+        android:layout_height="50dp">
+        <TextView android:id="@+id/text"
+            android:text="--"
+            android:textSize="32dp"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content">        
+        </TextView>
+        <com.jwetherell.heart_rate_monitor.HeartbeatView android:id="@+id/image"
+            android:layout_width="wrap_content"
+	        android:layout_height="wrap_content">
+	    </com.jwetherell.heart_rate_monitor.HeartbeatView>
+    </LinearLayout>
 	<SurfaceView android:id="@+id/preview"
-		android:layout_weight="1" 
-		android:layout_width="wrap_content"
+        android:layout_weight="1" 
+		android:layout_width="fill_parent"
 		android:layout_height="wrap_content">
 	</SurfaceView>
-	<LinearLayout android:id="@+id/bottom"
-		android:layout_weight="1" 
-		android:layout_width="50sp"
-		android:layout_height="50sp">
-		<ImageView android:id="@+id/image"
-			android:src="@drawable/green_icon" 
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:layout_gravity="center">
-		</ImageView>
-	</LinearLayout>
 </LinearLayout>
