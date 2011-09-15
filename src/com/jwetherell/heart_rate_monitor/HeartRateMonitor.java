@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 
 /**
- * This class extends Activity to handle a picture preview, process the preview for a luma value 
+ * This class extends Activity to handle a picture preview, process the preview for a red values 
  * and determine a heart beat.
  * 
  * @author Justin Wetherell <phishman3579@gmail.com>
@@ -99,17 +99,22 @@ public class HeartRateMonitor extends Activity {
 	private static PreviewCallback previewCallback = new PreviewCallback() {
 		@Override
 		public void onPreviewFrame(byte[] data, Camera cam) {
-			if (!processing.compareAndSet(false, true)) return;
-			
 			if (data == null) return;
 			Camera.Size size = cam.getParameters().getPreviewSize();
 			if (size == null) return;
 
+			if (!processing.compareAndSet(false, true)) return;
+			
 			int width = size.width;
 			int height = size.height;
 
 			int imgAvg = ImageProcessing.decodeYUV420SPtoRedAvg(data.clone(), height, width);
-
+			Log.i(TAG, "imgAvg="+imgAvg);
+			if (imgAvg==0 || imgAvg==255) {
+				processing.set(false);
+				return;
+			}
+			
 			int averageArrayAvg=0;
 			int averageArrayCnt=0;
 			for (int i=0; i<averageArray.length; i++) {
