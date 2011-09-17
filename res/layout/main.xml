@@ -13,13 +13,19 @@
         <TextView android:id="@+id/text"
             android:text="--"
             android:textSize="32dp"
-            android:layout_width="50dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">        
         </TextView>
-        <com.jwetherell.heart_rate_monitor.HeartbeatView android:id="@+id/image"
-            android:layout_width="wrap_content"
-	        android:layout_height="wrap_content">
-	    </com.jwetherell.heart_rate_monitor.HeartbeatView>
+        <RelativeLayout
+	        android:orientation="horizontal" 
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent">
+	        <com.jwetherell.heart_rate_monitor.HeartbeatView android:id="@+id/image"
+	        	android:layout_centerInParent="true"
+	            android:layout_width="wrap_content"
+		        android:layout_height="wrap_content">
+		    </com.jwetherell.heart_rate_monitor.HeartbeatView>
+	    </RelativeLayout>
     </LinearLayout>
 	<SurfaceView android:id="@+id/preview"
         android:layout_weight="1" 

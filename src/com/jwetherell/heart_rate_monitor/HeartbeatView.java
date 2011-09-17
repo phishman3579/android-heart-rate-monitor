@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -14,8 +15,13 @@ import android.view.View;
  * @author Justin Wetherell <phishman3579@gmail.com>
  */
 public class HeartbeatView extends View {
+	private static final Matrix matrix = new Matrix();
+	
 	private static Bitmap greenBitmap = null;
 	private static Bitmap redBitmap = null;
+	
+	private static int parentWidth = 0;
+	private static int parentHeight = 0;
 
     public HeartbeatView(Context context, AttributeSet attr) {
         super(context,attr);
@@ -35,8 +41,8 @@ public class HeartbeatView extends View {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-        int parentWidth = MeasureSpec.getSize(widthMeasureSpec);
-        int parentHeight = MeasureSpec.getSize(heightMeasureSpec);
+        parentWidth = MeasureSpec.getSize(widthMeasureSpec);
+        parentHeight = MeasureSpec.getSize(heightMeasureSpec);
         setMeasuredDimension(parentWidth, parentHeight);
     }
     
@@ -44,7 +50,21 @@ public class HeartbeatView extends View {
     protected void onDraw(Canvas canvas) {
     	if (canvas==null) return;
 
-        if (HeartRateMonitor.getCurrent()==HeartRateMonitor.TYPE.GREEN) canvas.drawBitmap(greenBitmap, 0, 0, null);
-        else canvas.drawBitmap(redBitmap, 0, 0, null);
+    	Bitmap bitmap = null;
+        if (HeartRateMonitor.getCurrent()==HeartRateMonitor.TYPE.GREEN) bitmap = greenBitmap;
+        else bitmap = redBitmap;
+        
+        int bitmapX = bitmap.getWidth()/2;
+        int bitmapY = bitmap.getHeight()/2;
+        
+        int parentX = parentWidth/2;
+        int parentY = parentHeight/2;
+        
+        int centerX = parentX-bitmapX;
+        int centerY = parentY-bitmapY;
+    	
+        matrix.reset();
+        matrix.postTranslate(centerX, centerY);
+        canvas.drawBitmap(bitmap, matrix, null);
     }
 }
