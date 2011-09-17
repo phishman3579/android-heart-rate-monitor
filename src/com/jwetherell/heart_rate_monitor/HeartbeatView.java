@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
+import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -16,6 +17,7 @@ import android.view.View;
  */
 public class HeartbeatView extends View {
 	private static final Matrix matrix = new Matrix();
+	private static final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
 	
 	private static Bitmap greenBitmap = null;
 	private static Bitmap redBitmap = null;
@@ -65,6 +67,6 @@ public class HeartbeatView extends View {
     	
         matrix.reset();
         matrix.postTranslate(centerX, centerY);
-        canvas.drawBitmap(bitmap, matrix, null);
+        canvas.drawBitmap(bitmap, matrix, paint);
     }
 }
