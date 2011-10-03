@@ -7,8 +7,8 @@ package com.jwetherell.heart_rate_monitor;
  * @author Justin Wetherell <phishman3579@gmail.com>
  */
 public abstract class ImageProcessing {
-	
-	public static int decodeYUV420SPtoRedSum(byte[] yuv420sp, int width, int height) {
+
+	private static int decodeYUV420SPtoRedSum(byte[] yuv420sp, int width, int height) {
 		if (yuv420sp==null) return 0;
 		
 		final int frameSize = width * height;
@@ -40,6 +40,15 @@ public abstract class ImageProcessing {
 	    return sum;
 	}
 	
+	/**
+	 * Given a byte array representing a yuv420sp image, determine the average amount of red in the image.
+	 * Note: returns 0 if the byte array is NULL.
+	 * 
+	 * @param yuv420sp Byte array representing a yuv420sp image
+	 * @param width Width of the image.
+	 * @param height Height of the image.
+	 * @return int representing the average amount of red in the image.
+	 */
 	public static int decodeYUV420SPtoRedAvg(byte[] yuv420sp, int width, int height) {
 		if (yuv420sp==null) return 0;
 		

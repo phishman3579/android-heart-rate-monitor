@@ -50,7 +50,10 @@ public class HeartRateMonitor extends Activity {
 	private static final int[] beatsArray = new int[beatsArraySize];
 	private static double beats = 0;
 	private static long startTime = 0;
-
+    
+    /**
+     * {@inheritDoc}
+     */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -67,12 +70,18 @@ public class HeartRateMonitor extends Activity {
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wakeLock = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "DoNotDimScreen");
 	}
-
+    
+    /**
+     * {@inheritDoc}
+     */
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
 	}
-
+    
+    /**
+     * {@inheritDoc}
+     */
 	@Override
 	public void onResume() {
 		super.onResume();
@@ -83,7 +92,10 @@ public class HeartRateMonitor extends Activity {
 		
 		startTime = System.currentTimeMillis();
 	}
-
+    
+    /**
+     * {@inheritDoc}
+     */
 	@Override
 	public void onPause() {
 		super.onPause();
@@ -97,6 +109,9 @@ public class HeartRateMonitor extends Activity {
 	}
 
 	private static PreviewCallback previewCallback = new PreviewCallback() {
+	    /**
+	     * {@inheritDoc}
+	     */
 		@Override
 		public void onPreviewFrame(byte[] data, Camera cam) {
 			if (data == null) return;
@@ -181,7 +196,10 @@ public class HeartRateMonitor extends Activity {
 		}
 	};
 
-	private static SurfaceHolder.Callback surfaceCallback=new SurfaceHolder.Callback() {
+	private static SurfaceHolder.Callback surfaceCallback=new SurfaceHolder.Callback() {    
+	    /**
+	     * {@inheritDoc}
+	     */
 		@Override
 		public void surfaceCreated(SurfaceHolder holder) {
 			try {
@@ -191,7 +209,10 @@ public class HeartRateMonitor extends Activity {
 				Log.e("PreviewDemo-surfaceCallback", "Exception in setPreviewDisplay()", t);
 			}
 		}
-
+	    
+	    /**
+	     * {@inheritDoc}
+	     */
 		@Override
 		public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
 			Camera.Parameters parameters = camera.getParameters();
@@ -204,7 +225,10 @@ public class HeartRateMonitor extends Activity {
 			camera.setParameters(parameters);
 			camera.startPreview();
 		}
-
+	    
+	    /**
+	     * {@inheritDoc}
+	     */
 		@Override
 		public void surfaceDestroyed(SurfaceHolder holder) {
 			// Ignore
