@@ -114,9 +114,9 @@ public class HeartRateMonitor extends Activity {
 	     */
 		@Override
 		public void onPreviewFrame(byte[] data, Camera cam) {
-			if (data == null) return;
+			if (data == null) throw new NullPointerException();
 			Camera.Size size = cam.getParameters().getPreviewSize();
-			if (size == null) return;
+			if (size == null) throw new NullPointerException();
 
 			if (!processing.compareAndSet(false, true)) return;
 			

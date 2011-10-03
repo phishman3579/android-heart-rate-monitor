@@ -56,7 +56,7 @@ public class HeartbeatView extends View {
      */
     @Override
     protected void onDraw(Canvas canvas) {
-    	if (canvas==null) return;
+    	if (canvas==null) throw new NullPointerException();
 
     	Bitmap bitmap = null;
         if (HeartRateMonitor.getCurrent()==HeartRateMonitor.TYPE.GREEN) bitmap = greenBitmap;
