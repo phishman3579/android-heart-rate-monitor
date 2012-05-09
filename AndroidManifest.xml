@@ -3,6 +3,14 @@
       package="com.jwetherell.heart_rate_monitor"
       android:versionCode="1"
       android:versionName="1.0">
+
+    <uses-sdk android:minSdkVersion="5" android:targetSdkVersion="5"/>
+
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.flash"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
     <application 	android:icon="@drawable/icon" 
     				android:label="@string/app_name"
     				android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
@@ -15,11 +23,5 @@
             </intent-filter>
         </activity>
     </application>
-    
-    <uses-feature android:name="android.hardware.camera"/>
-    <uses-feature android:name="android.hardware.camera.flash"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-sdk android:minSdkVersion="7" />
 
 </manifest> 

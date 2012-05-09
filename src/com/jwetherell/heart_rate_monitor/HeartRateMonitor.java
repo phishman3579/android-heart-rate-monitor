@@ -124,7 +124,7 @@ public class HeartRateMonitor extends Activity {
 			int height = size.height;
 
 			int imgAvg = ImageProcessing.decodeYUV420SPtoRedAvg(data.clone(), height, width);
-			Log.i(TAG, "imgAvg="+imgAvg);
+			//Log.i(TAG, "imgAvg="+imgAvg);
 			if (imgAvg==0 || imgAvg==255) {
 				processing.set(false);
 				return;
@@ -145,7 +145,7 @@ public class HeartRateMonitor extends Activity {
 				newType = TYPE.RED;
 				if (newType!=currentType) {
 					beats++;
-					Log.e(TAG, "BEAT!! beats="+beats);
+					//Log.d(TAG, "BEAT!! beats="+beats);
 				}
 			} else if (imgAvg>rollingAverage) {
 				newType = TYPE.GREEN;
@@ -173,7 +173,7 @@ public class HeartRateMonitor extends Activity {
 					return;
 				}
 				
-				Log.e(TAG, "totalTimeInSecs="+totalTimeInSecs+" beats="+beats);
+				//Log.d(TAG, "totalTimeInSecs="+totalTimeInSecs+" beats="+beats);
 
 				if (beatsIndex==beatsArraySize) beatsIndex = 0;
 				beatsArray[beatsIndex] = dpm;
