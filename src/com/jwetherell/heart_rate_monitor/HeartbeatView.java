@@ -16,17 +16,18 @@ import android.view.View;
  * @author Justin Wetherell <phishman3579@gmail.com>
  */
 public class HeartbeatView extends View {
-	private static final Matrix matrix = new Matrix();
-	private static final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-	
-	private static Bitmap greenBitmap = null;
-	private static Bitmap redBitmap = null;
-	
-	private static int parentWidth = 0;
-	private static int parentHeight = 0;
+
+    private static final Matrix matrix = new Matrix();
+    private static final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+
+    private static Bitmap greenBitmap = null;
+    private static Bitmap redBitmap = null;
+
+    private static int parentWidth = 0;
+    private static int parentHeight = 0;
 
     public HeartbeatView(Context context, AttributeSet attr) {
-        super(context,attr);
+        super(context, attr);
 
         greenBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.green_icon);
         redBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.red_icon);
@@ -38,7 +39,7 @@ public class HeartbeatView extends View {
         greenBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.green_icon);
         redBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.red_icon);
     }
-    
+
     /**
      * {@inheritDoc}
      */
@@ -50,27 +51,27 @@ public class HeartbeatView extends View {
         parentHeight = MeasureSpec.getSize(heightMeasureSpec);
         setMeasuredDimension(parentWidth, parentHeight);
     }
-    
+
     /**
      * {@inheritDoc}
      */
     @Override
     protected void onDraw(Canvas canvas) {
-    	if (canvas==null) throw new NullPointerException();
+        if (canvas == null) throw new NullPointerException();
 
-    	Bitmap bitmap = null;
-        if (HeartRateMonitor.getCurrent()==HeartRateMonitor.TYPE.GREEN) bitmap = greenBitmap;
+        Bitmap bitmap = null;
+        if (HeartRateMonitor.getCurrent() == HeartRateMonitor.TYPE.GREEN) bitmap = greenBitmap;
         else bitmap = redBitmap;
-        
-        int bitmapX = bitmap.getWidth()/2;
-        int bitmapY = bitmap.getHeight()/2;
-        
-        int parentX = parentWidth/2;
-        int parentY = parentHeight/2;
-        
-        int centerX = parentX-bitmapX;
-        int centerY = parentY-bitmapY;
-    	
+
+        int bitmapX = bitmap.getWidth() / 2;
+        int bitmapY = bitmap.getHeight() / 2;
+
+        int parentX = parentWidth / 2;
+        int parentY = parentHeight / 2;
+
+        int centerX = parentX - bitmapX;
+        int centerY = parentY - bitmapY;
+
         matrix.reset();
         matrix.postTranslate(centerX, centerY);
         canvas.drawBitmap(bitmap, matrix, paint);
