@@ -16,7 +16,7 @@ public abstract class ImageProcessing {
         for (int j = 0, yp = 0; j < height; j++) {
             int uvp = frameSize + (j >> 1) * width, u = 0, v = 0;
             for (int i = 0; i < width; i++, yp++) {
-                int y = (0xff & ((int) yuv420sp[yp])) - 16;
+                int y = (0xff & yuv420sp[yp]) - 16;
                 if (y < 0) y = 0;
                 if ((i & 1) == 0) {
                     v = (0xff & yuv420sp[uvp++]) - 128;
