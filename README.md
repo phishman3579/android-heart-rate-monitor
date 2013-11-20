@@ -12,7 +12,7 @@ Android based heart rate monitor which uses the camera and its flash to determin
 * github: http://github.com/phishman3579/android-heart-rate-monitor
 * linkedIn: http://www.linkedin.com/in/phishman3579
 * e-mail: phishman3579@gmail.com
-* Twitter: @phishman3579
+* Twitter: http://twitter.com/phishman3579
 
 ## Details
 The App uses the PreviewCallback mechanism to grab the latest image from the preview frame. It then processes the YUV420SP data and pulls out all the red pixel values.
@@ -26,3 +26,4 @@ The App will collect data in ten second chunks and add the beets per minute to a
 All you have to do is open the HeartRateMonitor App and then hold the tip of your index finger over the camera lens of your phone. The entire camera preview image should be red with a lighter area where the tip of your finger is touching. Do not press too hard or yo will cut off circulation which will result in an inaccurate reading.  
 
 After a second or two, you should see the Android icon on the top of the screen start to flash red when it senses a heart beat. After ten seconds it will compute your heart rate and update the number next to the Android icon. It'll take between ten and thirty seconds to get an accurate heart rate.
+
