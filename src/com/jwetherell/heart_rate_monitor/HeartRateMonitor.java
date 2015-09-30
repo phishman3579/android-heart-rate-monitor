@@ -94,7 +94,17 @@ public class HeartRateMonitor extends Activity {
         wakeLock.acquire();
 
         camera = Camera.open();
-
+        Camera.Parameters parameters = camera.getParameters();
+        if(parameters.getMaxExposureCompensation() != parameters.getMinExposureCompensation()){
+            parameters.setExposureCompensation(0);	
+        }
+        if(parameters.isAutoExposureLockSupported()){
+        	parameters.setAutoExposureLock(true);
+        }
+        if(parameters.isAutoWhiteBalanceLockSupported()){
+        	parameters.setAutoWhiteBalanceLock(true);
+        }
+        camera.setParameters(parameters);
         startTime = System.currentTimeMillis();
     }
 
