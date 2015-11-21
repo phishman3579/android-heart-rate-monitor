@@ -8,6 +8,7 @@ Android heart rate monitor
 Android based heart rate monitor which uses the camera and its flash to determine the users heart rate in beats per minute.
 
 * Created by Justin Wetherell
+* For questions use: http://groups.google.com/forum/#!forum/android-heart-rate-monitor
 * Google: http://code.google.com/p/android-heart-rate-monitor
 * Github: http://github.com/phishman3579/android-heart-rate-monitor
 * LinkedIn: http://www.linkedin.com/in/phishman3579
