@@ -101,8 +101,12 @@ public class HeartRateMonitor extends Activity {
         super.onResume();
 
         wakeLock.acquire();
-
-        camera = Camera.open();
+        
+        try {
+            camera = Camera.open();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
         startTime = System.currentTimeMillis();
     }
