@@ -26,10 +26,10 @@ The App uses the PreviewCallback mechanism to grab the latest image from the pre
 
 It uses data smoothing in a Integer array to figure out the average red pixel value in the image. Once it figures out the average it determines a heart beat when the average red pixel value in the latest image is greater than the smoothed average.
 
-The App will collect data in ten second chunks and add the beats per minute to another Integer array which is used to smooth the beats per minute data.
+The App will collect data in ten second chunks and add the beats per minute to another Integer array which is used to smooth the beats per minute data.The data shown is mostly show with the accuracy of 70%.
 
 ## How To
 
 All you have to do is open the HeartRateMonitor App and then hold the tip of your index finger over the camera lens of your phone. The entire camera preview image should be red with a lighter area where the tip of your finger is touching. Do not press too hard or you will cut off circulation which will result in an inaccurate reading.  
 
-After a second or two, you should see the Android icon on the top of the screen start to flash red when it senses a heart beat. After ten seconds it will compute your heart rate and update the number next to the Android icon. It'll take between ten and thirty seconds to get an accurate heart rate.
+After a second or two, you should see the Android icon on the middle of the screen start to flash red when it senses a heart beat. After ten seconds it will compute your heart rate and update the number next to the Android icon. It'll take between ten and thirty seconds to get an accurate heart rate.
