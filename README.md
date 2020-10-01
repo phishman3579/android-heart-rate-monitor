@@ -1,8 +1,6 @@
 
-android-heart-rate-monitor
+Android Heart Rate Monitor
 ==========================
-
-Android heart rate monitor
 
 ## Introduction
 
